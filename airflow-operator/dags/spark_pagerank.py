@@ -42,7 +42,7 @@ t1 = SparkKubernetesOperator(
 t2 = SparkKubernetesSensor(
     task_id='spark_pagerank_monitor',
     namespace="spark-job",
-    application_name="{{ task_instance.xcom_pull(task_ids='spark_pi_submit')['metadata']['name'] }}",
+    application_name="{{ task_instance.xcom_pull(task_ids='spark_pagerank_submit')['metadata']['name'] }}",
     kubernetes_conn_id="kubernetes_default",
     dag=dag,
 )
