@@ -1,0 +1,31 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: airflow-sparkapplication
+  namespace: spark-job
+rules:
+- apiGroups:
+  - "sparkoperator.k8s.io"
+  resources:
+  - sparkapplications
+  verbs:
+  - create
+  - list
+  - get
+  - watch
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: spark-job
+  name: airflow-sparkapplication
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: airflow-sparkapplication
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: airflow-operator

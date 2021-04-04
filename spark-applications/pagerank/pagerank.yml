@@ -1,0 +1,46 @@
+# kubectl get pods --namespace spark-operator
+
+# kubectl apply -f spark-applications/pagerank/pagerank.yml 
+# kubectl get sparkapplications pyspark-pagerank --namespace=spark-job
+# kubectl describe sparkapplications pyspark-pagerank --namespace=spark-job
+# kubectl get pods --namespace spark-job
+# kubectl logs pyspark-pagerank-driver --namespace=spark-job
+# kubectl logs pythonpagerank-9ef77f789dfc3f8c-exec-1 --namespace=spark-job
+
+apiVersion: "sparkoperator.k8s.io/v1beta2"
+kind: SparkApplication
+metadata:
+  name: pyspark-pagerank
+  namespace: spark-job
+spec:
+  type: Python
+  pythonVersion: "3"
+  mode: cluster
+  image: "afonsoaugusto/pagerank:latest"
+  imagePullPolicy: Always
+  mainApplicationFile: local:///app/pagerank.py
+  sparkVersion: "3.0.0"
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 3
+    onFailureRetryInterval: 10
+    onSubmissionFailureRetries: 5
+    onSubmissionFailureRetryInterval: 20
+  hadoopConf:
+    "fs.s3a.endpoint": "http://minio.minio-operator.svc.cluster.local:9000"
+  driver:
+    cores: 1
+    coreLimit: "1200m"
+    memory: "512m"
+    labels:
+      version: 3.0.0
+    serviceAccount: spark-spark
+    envVars:
+      FILE_PROCESS: "/app/pagerank_data.txt"
+      RANK_TOP: "5"
+  executor:
+    cores: 1
+    instances: 3
+    memory: "512m"
+    labels:
+      version: 3.0.0
