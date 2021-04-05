@@ -53,7 +53,7 @@ setup-k8s-dashboard: ## Setup dashboard for k8s investigate
 	bash ./kubernetes/local-setup/scripts/101-setup-dashboard.sh
 
 setup-k8s-airflow-operator: ## Install airflow-operator
-	echo "STEP: setup-auxiliaries-minio-operator - Install minio-operator"
+	echo "STEP: setup-k8s-airflow-operator - Install minio-operator"
 	bash ./airflow-operator/01-airflow.sh ${AIRFLOW_USERNAME} ${AIRFLOW_PASSWORD} ${AIRFLOW_DAGS_URL_REPOSITORY} ${AIRFLOW_DAGS_BRANCH} ${AIRFLOW_DAGS_NAME}
 
 k8s-port-foward-minio: ## Port Foward to access minio console
