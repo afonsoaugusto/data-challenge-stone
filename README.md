@@ -13,17 +13,17 @@ Desafio Data Challenge Stone na categoria Data Platform
   * [Intens de avaliação da apresentação](#intens-de-avalia--o-da-apresenta--o)
 - [Arquitetura](#arquitetura)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-  * [[Devcontainer](https://code.visualstudio.com/docs/remote/containers)](#-devcontainer--https---codevisualstudiocom-docs-remote-containers-)
+  * [Devcontainer](#-devcontainer--https---codevisualstudiocom-docs-remote-containers-)
   * [Pipeline](#pipeline)
     + [Estrutura do diretório spark-applications](#estrutura-do-diret-rio-spark-applications)
 - [Solução](#solução)
   * [Kubernetes](#kubernetes)
-    + [[Kind](https://kind.sigs.k8s.io/)](#-kind--https---kindsigsk8sio--)
-    + [[Helm](https://helm.sh/docs/)](#-helm--https---helmsh-docs--)
+    + [Kind](#-kind--https---kindsigsk8sio--)
+    + [Helm](#-helm--https---helmsh-docs--)
   * [Kubernetes-Operators](#kubernetes-operators)
-    + [[spark-on-k8s-operator](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/)](#-spark-on-k8s-operator--https---githubcom-googlecloudplatform-spark-on-k8s-operator--)
-    + [[Minio-operator](https://github.com/minio/operator/blob/master/README.md)](#-minio-operator--https---githubcom-minio-operator-blob-master-readmemd-)
-    + [[Airflow-operator](https://github.com/bitnami/charts/tree/master/bitnami/airflow)](#-airflow-operator--https---githubcom-bitnami-charts-tree-master-bitnami-airflow-)
+    + [spark-on-k8s-operator](#-spark-on-k8s-operator--https---githubcom-googlecloudplatform-spark-on-k8s-operator--)
+    + [Minio-operator](#-minio-operator--https---githubcom-minio-operator-blob-master-readmemd-)
+    + [Airflow-operator](#-airflow-operator--https---githubcom-bitnami-charts-tree-master-bitnami-airflow-)
   * [Local setup](#local-setup)
     + [Variaveis de ambiente](#variaveis-de-ambiente)
     + [Executando Local setup](#executando-local-setup)
@@ -616,6 +616,7 @@ Portanto, para continuar na adição de novas aplicações ou jobs é necessári
 * Criar mais aplicações de exemplo
 * Desenhar de forma mais detalhada a arquitetura do projeto
 * Melhorar o build das imagens respeitando a branch onde está sendo executada, assim podendo ser referenciada mais especificamente na definição da Aplicação e ser testada em um ambiente de desenvolvimento/homologação
+* Modificar estratégia de passagem de valores para a definição da aplicação spark, sendo possivel customizar o nome da imagem a ser executado
 
 ## Referências
 
