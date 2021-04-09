@@ -130,3 +130,5 @@ dmypy.json
 
 notas.txt
 .env.private
+
+k8sviz.sh
