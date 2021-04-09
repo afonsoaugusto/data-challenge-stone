@@ -6,24 +6,29 @@
 Desafio Data Challenge Stone na categoria Data Platform
 
 - [Desafio](#desafio)
-  * [Descrição](#descri--o)
+  * [Descrição](#descrição)
   * [Entrega 1](#entrega-1)
   * [Entrega 2](#entrega-2)
-  * [Intens de avaliação da solução](#intens-de-avalia--o-da-solu--o)
-  * [Intens de avaliação da apresentação](#intens-de-avalia--o-da-apresenta--o)
+  * [Intens de avaliação da solução](#intens-de-avalia--o-da-solução)
+  * [Intens de avaliação da apresentação](#intens-de-avaliação-da-apresentação)
 - [Arquitetura](#arquitetura)
+  * [Airflow Operator](#Airflow-Operator)
+  * [Spark Operator](#Spark-Operator)
+  * [Spark Job](#Spark-Job)
+  * [Airflow Operator](#Airflow-Operator)
+  * [Minio Operator](#Minio-Operator)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-  * [Devcontainer](#-devcontainer--https---codevisualstudiocom-docs-remote-containers-)
+  * [Devcontainer](#Devcontainers)
   * [Pipeline](#pipeline)
-    + [Estrutura do diretório spark-applications](#estrutura-do-diret-rio-spark-applications)
+    + [Estrutura do diretório spark-applications](#estrutura-do-diretório-spark-applications)
 - [Solução](#solução)
   * [Kubernetes](#kubernetes)
-    + [Kind](#-kind--https---kindsigsk8sio--)
-    + [Helm](#-helm--https---helmsh-docs--)
+    + [Kind](#Kind)
+    + [Helm](#Helm)
   * [Kubernetes-Operators](#kubernetes-operators)
-    + [spark-on-k8s-operator](#-spark-on-k8s-operator--https---githubcom-googlecloudplatform-spark-on-k8s-operator--)
-    + [Minio-operator](#-minio-operator--https---githubcom-minio-operator-blob-master-readmemd-)
-    + [Airflow-operator](#-airflow-operator--https---githubcom-bitnami-charts-tree-master-bitnami-airflow-)
+    + [spark-on-k8s-operator](#spark-on-k8s-operator)
+    + [Minio-operator](#Minio-operator)
+    + [Airflow-operator](#Airflow-operator)
   * [Local setup](#local-setup)
     + [Variaveis de ambiente](#variaveis-de-ambiente)
     + [Executando Local setup](#executando-local-setup)
@@ -33,7 +38,7 @@ Desafio Data Challenge Stone na categoria Data Platform
   * [Airflow-Operator](#airflow-operator)
     + [Acessando a console do airflow](#acessando-a-console-do-airflow)
     + [Executando o Workflow](#executando-o-workflow)
-- [Deployando a solução em um ambiente com o cluster já disponivel](#deployando-a-solu--o-em-um-ambiente-com-o-cluster-j--disponivel)
+- [Deployando a solução em um ambiente com o cluster já disponivel](#deployando-a-solução-em-um-ambiente-com-o-cluster-já-disponivel)
   * [Passo 0 - configurar as variaveis de ambiente](#passo-0---configurar-as-variaveis-de-ambiente)
   * [Passo 1 - configurar o acesso ao cluster](#passo-1---configurar-o-acesso-ao-cluster)
   * [Passo 2 - instalar os operadores no cluster](#passo-2---instalar-os-operadores-no-cluster)
@@ -83,7 +88,27 @@ Apresentação do projeto em 20 min detalhando o problema e a solução implemen
 
 ## Arquitetura
 
+O desenho da arquitetura está apresentado no relacionamento dos namespaces no k8s.
+
 ![k8s-namespaces](img/k8s-namespaces.png)
+
+### Airflow Operator
+
+![airflow-operator](img/namespaces/airflow-operator.png)
+
+### Spark Operator
+
+![spark-operator](img/namespaces/spark-operator.png)
+
+### Spark Job
+
+Namespace durante a execução de uma SparkApplication com seus 3 executors que foram definidos no parametro *spec.executor.instances* do yaml de configuração.
+
+![spark-job](img/namespaces/spark-job.png)
+
+### Minio Operator
+
+![minio-operator](img/namespaces/minio-operator.png)
 
 ## Estrutura do Projeto
 
@@ -607,6 +632,15 @@ Portanto, para continuar na adição de novas aplicações ou jobs é necessári
   * Dockerfile
   * source_code
 * Criar uma dag definition e um spark definition no diretório airflow-operator/dags
+
+## Monorepo ou Multi-repo
+
+Como o objetivo do challenge é uma proposta de solução então o mesmo foi desenvolvido em um unico repositório.
+Porém inicialmente para evolução do projeto eu sugiro a divisão deste repositório em 3 projetos.
+
+1. Um respositório para conter os scripts e a automação da criação do cluster
+2. Um respositório para conter a automação da aplicação da estrutura dos operators e sua configuração
+3. Um respositório para conter as Aplicações onde consiste na definição das Dags e do SparkApplication (application.language, libs, Dockerfile).
 
 ## TODO
 
