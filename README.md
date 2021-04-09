@@ -633,7 +633,7 @@ Portanto, para continuar na adição de novas aplicações ou jobs é necessári
   * source_code
 * Criar uma dag definition e um spark definition no diretório airflow-operator/dags
 
-## Monorepo ou Multi-repo
+## Mono-repo ou Multi-repo
 
 Como o objetivo do challenge é uma proposta de solução então o mesmo foi desenvolvido em um unico repositório.
 Porém inicialmente para evolução do projeto eu sugiro a divisão deste repositório em 3 projetos.
