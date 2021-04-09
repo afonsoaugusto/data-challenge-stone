@@ -102,6 +102,8 @@ O desenho da arquitetura está apresentado no relacionamento dos namespaces no k
 
 ### Spark Job
 
+Namespace durante a execução de uma SparkApplication com seus 3 executors que foram definidos no parametro *spec.executor.instances* do yaml de configuração.
+
 ![spark-job](img/namespaces/spark-job.png)
 
 ### Minio Operator
