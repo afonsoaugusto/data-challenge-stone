@@ -43,6 +43,7 @@ Desafio Data Challenge Stone na categoria Data Platform
   * [Passo 1 - configurar o acesso ao cluster](#passo-1---configurar-o-acesso-ao-cluster)
   * [Passo 2 - instalar os operadores no cluster](#passo-2---instalar-os-operadores-no-cluster)
   * [Passo 3 - Evolução das aplicações](#passo-3---evolu--o-das-aplica--es)
+- [Mono-repo ou Multi-repo](#Mono-repo-ou-Multi-repo)
 - [TODO](#todo)
 - [Referências](#referências)
 
