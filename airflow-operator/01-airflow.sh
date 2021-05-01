@@ -3,7 +3,7 @@
 BASEDIR=$(dirname "$0")
 RELEASE_NAME=airflow
 NAMESPACE=airflow-operator
-CHART_VERSION=8.2.1
+CHART_VERSION=10.0.1
 
 AIRFLOW_USERNAME=${1}
 AIRFLOW_PASSWORD=${2}
@@ -17,6 +17,9 @@ kubectl apply -f ./$BASEDIR/airflow-namespace.yml
 
 echo "Helm add repository airflow-operator"
 helm repo add bitnami https://charts.bitnami.com/bitnami
+
+echo "Helm repo update"
+helm repo update
 
 echo "Helm install airflow-operator"
 helm install \
