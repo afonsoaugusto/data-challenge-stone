@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 BASEDIR=$(dirname "$0")
+RELEASE_NAME=spark
+NAMESPACE=spark-operator
 
 echo "kubectl create namespaces for spark"
 kubectl apply -f ./$BASEDIR/spark-namespaces.yml
@@ -10,9 +12,9 @@ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-
 
 echo "Helm install spark-operator"
 helm install \
-     spark \
+     $RELEASE_NAME \
      spark-operator/spark-operator \
-     --namespace spark-operator \
+     --namespace $NAMESPACE \
      --set sparkJobNamespace=spark-job
 
 echo "Setup finish"

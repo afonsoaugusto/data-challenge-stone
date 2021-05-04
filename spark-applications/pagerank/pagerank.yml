@@ -5,7 +5,8 @@
 # kubectl describe sparkapplications pyspark-pagerank --namespace=spark-job
 # kubectl get pods --namespace spark-job
 # kubectl logs pyspark-pagerank-driver --namespace=spark-job
-# kubectl logs pythonpagerank-9ef77f789dfc3f8c-exec-1 --namespace=spark-job
+# kubectl logs pythonpagerank-e051017928a11671-exec-3 --namespace=spark-job
+# kubectl delete -f pagerank.yml
 
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication

@@ -1,8 +1,8 @@
-. .env.private
-export $(sed 's/=.*//; s/^#.*//' .env.private)
+#. .env.private
+#export $(sed 's/=.*//; s/^#.*//' .env.private)
 
-. .env.project
-export $(sed 's/=.*//; s/^#.*//' .env.project)
+#. .env.project
+#export $(sed 's/=.*//; s/^#.*//' .env.project)
 
 # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
 alias k='kubectl'
