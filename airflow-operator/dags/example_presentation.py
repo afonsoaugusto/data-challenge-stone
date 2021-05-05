@@ -20,7 +20,7 @@ default_args = {
 
 # [START instantiate_dag]
 dag = DAG(
-    'test-data-pipeline',
+    'example_presentation',
     default_args=default_args,
     start_date=datetime(2021, 4, 1),
     schedule_interval='@hourly',
