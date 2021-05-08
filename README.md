@@ -639,9 +639,9 @@ Portanto, para continuar na adição de novas aplicações ou jobs é necessári
 Como o objetivo do challenge é uma proposta de solução então o mesmo foi desenvolvido em um unico repositório.
 Porém inicialmente para evolução do projeto eu sugiro a divisão deste repositório em 3 projetos.
 
-1. Um respositório para conter os scripts e a automação da criação do cluster
-2. Um respositório para conter a automação da aplicação da estrutura dos operators e sua configuração
-3. Um respositório para conter as Aplicações onde consiste na definição das Dags e do SparkApplication (application.language, libs, Dockerfile).
+1. Um repositório para conter os scripts e a automação da criação do cluster
+2. Um repositório para conter a automação da aplicação da estrutura dos operators e sua configuração
+3. Um repositório para conter as Aplicações onde consiste na definição das Dags e do SparkApplication (application.language, libs, Dockerfile).
 
 ## TODO
 

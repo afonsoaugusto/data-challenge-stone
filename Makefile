@@ -73,9 +73,9 @@ k8s-proxy-dashboard: ## Kubeclt proxy for access dashboard
 
 dashboard: setup-k8s-dashboard k8s-proxy-dashboard ## setup-k8s-dashboard + k8s-proxy-dashboard
 setup-local: setup-local-install-binaries setup-local-init-kind ## Setup environment to running k8s locally - Install binaries and initi k8s kind
-setup-k8s: setup-k8s-spark-operator ## Setup k8s - spark-operator
+setup-k8s: setup-k8s-spark-operator setup-k8s-airflow-operator ## Setup k8s - spark-operator -> airflow-operator
 setup-auxiliaries: setup-auxiliaries-minio-operator ## Setup auxiliaries - Minio Operator
-setup: setup-local setup-k8s setup-auxiliaries setup-k8s-airflow-operator ## Setup environment - setup-local -> setup-k8s -> setup-auxiliaries -> setup-k8s-airflow-operator
+setup: setup-local setup-k8s setup-auxiliaries ## Setup environment - setup-local -> setup-k8s -> setup-auxiliaries
 clean: setup-local-cleanup ## alias for setup-local-cleanup
 
 build:
